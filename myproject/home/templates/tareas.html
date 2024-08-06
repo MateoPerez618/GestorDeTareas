@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Tareas
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/tareas.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="centered-container">
+        <form class="form" method="POST">
+            {% csrf_token %}
+            <p class="titulo">Registrar nueva tarea</p>
+            <div class="field">
+                {{ form.nombre_tarea }}
+            </div>
+            <div class="field">
+                {{ form.descripcion_tarea }}
+            </div>
+            <div class="field">
+                {{ form.completar_tarea }}
+            </div>
+            <div class="btn">
+                <button class="button2" type="submit">Completar</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}

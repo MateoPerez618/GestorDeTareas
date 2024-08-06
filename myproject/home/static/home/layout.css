@@ -1,0 +1,24 @@
+/* Asegúrate de que estos estilos estén en tu archivo layout.css */
+
+/* Estilos para la navegación */
+.container1 nav {
+    margin-bottom: 20px; /* Espacio entre la navegación y el contenido principal */
+}
+
+/* Estilos para el contenedor principal */
+.main-content {
+    padding: 20px; /* Espacio alrededor del contenido principal */
+}
+
+/* Estilos para centrar el contenido */
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Al menos la altura de la pantalla */
+    background-color: #fff; /* Fondo blanco para el contenedor */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}

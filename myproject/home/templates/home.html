@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="centered-container">
+        <h1>Tareas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Completar</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tarea in tareas %}
+                    <tr>
+                        <td>{{ tarea.nombre_tarea }}</td>
+                        <td>{{ tarea.descripcion_tarea }}</td>
+                        <td>{{ tarea.completar_tarea }}</td>
+                        <td>
+                            <a href="{% url 'actualizar_tarea' tarea.pk %}">Actualizar</a>
+                            <form action="{% url 'eliminar_tarea' tarea.pk %}" method="post" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit">Borrar</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
